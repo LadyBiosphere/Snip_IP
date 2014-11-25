@@ -26,13 +26,24 @@
 			$allData = $this->getAllProductData();
 
 			// Convert data to a very large associative array
-			$allData = $allData->fetch_all();
+			//$allData = $allData->fetch_all();
+
+			// Container to hold all data as it is being looped through
+			$tempAllData = [];
+
+			// Loop through the data and put it all into a large assoc array
+			while( $oneItem = $allData->fetch_assoc() ) {
+				$tempAllData[] = $oneItem;
+			}
+
+			// Use previous name
+			$allData = $tempAllData;
 			
 			// Create an array to hold all the categories
 			$allCategories = [];
 
 			foreach( $allData as $product ) {
-				$allCategories[] = $product[2];
+				$allCategories[] = $product['category'];
 			}
 
 			// At this point, we have categories for each product but there is plenty of duplication.
@@ -56,7 +67,7 @@
 				foreach( $allData as $product ) {
 
 					// If this product category is the same as the category we are looking for, put it in it's own 'container'
-					if( $product[2] == $category ) {
+					if( $product['category'] == $category ) {
 						$newSetOfProducts[] = $product;
 					}
 				}
