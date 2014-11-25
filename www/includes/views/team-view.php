@@ -47,6 +47,7 @@
 										echo '<div class="news">';
 											echo '<h2>'.htmlspecialchars($row['staff_name']).'</h2>';
 
+											// If admin is logged in, then show edit and delete buttons
 											if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
 
 												echo '<ul>';

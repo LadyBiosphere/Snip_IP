@@ -57,7 +57,7 @@
 					echo '</div>';
 
 				}
-			// Else, registration was successful. Process.
+			// Else, successful. Process.
 			} else {
 				$staffData = $this->model->processGetStaffUploadData();
 				$getStaffUploadData = $this->model->processGetStaffUploadData();

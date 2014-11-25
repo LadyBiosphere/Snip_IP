@@ -89,14 +89,14 @@
 			} else {
 				$loginResult = $this->attemptLogin();
 				if($loginResult == false) {
-					$errorMessages['login-error'] = '* Username and password combination is incorrect';
+					$errorMessages['login-error'] = '* Incorrect combination';
 					$errorMessages['success'] = false;
 					return $errorMessages;
 				} else {
-					$_SESSION['user_ID'] 	= $loginResult['user_ID'];
+					$_SESSION['user_ID'] 		= $loginResult['user_ID'];
 					$_SESSION['user_username'] 	= $loginResult['user_username'];
-					$_SESSION['user_access'] 		= $loginResult['user_access'];
-					$errorMessages['success'] = true;
+					$_SESSION['user_access'] 	= $loginResult['user_access'];
+					$errorMessages['success'] 	= true;
 					return $errorMessages;
 				}
 			}
@@ -195,8 +195,8 @@
 			unset($_SESSION['user_ID']);
 		}
 
-		// Take uploaded image file, and resize it using resizer. Put originals and
-		// thumbnails in seperate folders.
+		// Take uploaded image file, and resize it using resizer. Put originals
+		// in seperate folders.
 		public function processInsertNews() {
 
 			// Has the user submitted an image?
@@ -206,9 +206,6 @@
 
 				// Uploader class
 				$imageUploader = new ImageUploadAndResize();
-
-				// Thumbnails destination
-				// $imageUploader->upload('newsPhoto', 'images/thumbnails', 170);
 
 				// Rename news-pic
 				$newName = $imageUploader->newName;
@@ -248,14 +245,14 @@
 
 			// News title
 			if( !$validate->checkRequired($_POST['title'])) {
-				$errorMessages['news-title-error'] = '* Required';
+				$errorMessages['news-title-error'] = '* Required (Max 60 characters)';
 				$errorMessages['news-error'] = 'News could not be posted';
 				$errorMessages['success'] = false;
 			}
 
 			// News desc
 			if( !$validate->checkRequired($_POST['desc'])) {
-				$errorMessages['news-desc-error'] = '* Required';
+				$errorMessages['news-desc-error'] = '* Required (Max 250 characters)';
 				$errorMessages['news-error'] = 'News could not be posted';
 				$errorMessages['success'] = false;
 			}
@@ -273,14 +270,10 @@
 
 		}
 
-		// TESTING
 		public function processGetAllCategories() {
-			// No user input. No validation
 			$catList = $this->getAllCategories();
 			return $catList;
 		}
-
-
 
 		public function processInsertProduct() {
 
@@ -297,7 +290,7 @@
 
 			// Product Name
 			if( !$validate->checkRequired($_POST['productName'])) {
-				$errorMessages['product-name-error'] = '* Required';
+				$errorMessages['product-name-error'] = '* Required (Max 50 characters)';
 				$errorMessages['product-error'] = 'Product could not be added';
 				$errorMessages['success'] = false;
 			}
@@ -310,7 +303,7 @@
 			}
 
 
-			// News name
+			// Product can't contain letters
 			if( $validate->checkRequired($_POST['productPrice'])) {
 				if(!$validate->checkNumeric($_POST['productPrice'])) {
 					$errorMessages['product-price-error'] = '* Numbers and full-stops only';
@@ -318,7 +311,7 @@
 					$errorMessages['success'] = false;
 				}
 			} else {
-				$errorMessages['product-price-error'] = '* Required';
+				$errorMessages['product-price-error'] = '* If price varies, enter 0.00';
 				$errorMessages['product-error'] = 'Product could not be added';
 				$errorMessages['success'] = false;
 			}
@@ -335,9 +328,6 @@
 			return $uploadMessagesProduct;
 
 		}
-
-
-
 
 
 		public function processInsertStaff() {
@@ -386,7 +376,7 @@
 			// Assume validation is ok
 			$errorMessages['success'] = true;
 
-			// News name
+			// Staff name
 			if( $validate->checkRequired($_POST['staffName'])) {
 				if(!$validate->checkName($_POST['staffName'])) {
 					$errorMessages['staff-name-error'] = '* Letters only';
@@ -394,21 +384,21 @@
 					$errorMessages['success'] = false;
 				}
 			} else {
-				$errorMessages['staff-name-error'] = '* Required: Max 35 characters';
+				$errorMessages['staff-name-error'] = '* Required (Max 35 characters)';
 				$errorMessages['staff-error'] = 'Staff could not be added';
 				$errorMessages['success'] = false;
 			}
 
 			// Staff photo
 			if(!$validate->checkRequired($_POST['staffPhoto'])) {
-				$errorMessages['staff-photo-error'] = '* Required';
+				$errorMessages['staff-photo-error'] = '* Required (Max 1MB)';
 				$errorMessages['staff-error'] = 'Staff could not be added';
 				$errorMessages['success'] = false;
 			}
 
 			// Staff bio
 			if(!$validate->checkRequired($_POST['staffBio'])) {
-				$errorMessages['staff-bio-error'] = '* Required: Max 400 characters';
+				$errorMessages['staff-bio-error'] = '* Required (Max 400 characters)';
 				$errorMessages['staff-error'] = 'Staff could not be added';
 				$errorMessages['success'] = false;
 			}
@@ -418,7 +408,7 @@
 				return $errorMessages;
 			}
 
-			// If validated, add news-pic to news
+			// If validated, add pic
 			$this->insertStaff();
 
 			$uploadMessagesStaff['success'] = true;
@@ -432,20 +422,19 @@
 			return $newsUploadData;
 		}
 
-		// Process news being uploaded
+		// Process staff being uploaded
 		public function processGetStaffUploadData() {
 			$staffUploadData = $this->getStaffUploadData();
 			return $staffUploadData;
 		}
 
-		// TEST
-		// Process news being uploaded
+		// Process product being uploaded
 		public function processGetProductUploadData() {
 			$productUploadData = $this->getProductUploadData();
 			return $productUploadData;
 		}
 
-		// Update a piece of artwork, after checking input for each field. 
+		// Update a piece of news, after checking input for each field. 
 		// If invalid or blank, show errors via array.
 		public function processUpdateNews() {
 
@@ -459,15 +448,15 @@
 			$updateResult = [];
 			$updateResult['success'] = true;
 
-			// Artwork title
+			// News title
 			if(strlen($_POST['title']) < 1) {
-				$updateResult['title-error'] = 'Minimum 1 character(s) long';
+				$updateResult['title-error'] = 'Required (Min 1 character)';
 				$updateResult['success'] = false;
 			}
 
-			// Artwork description
+			// News description
 			if(strlen($_POST['desc']) < 5) {
-				$updateResult['desc-error'] = 'Must be 5 - 250 characters long';
+				$updateResult['desc-error'] = 'Required (5 - 250 characters)';
 				$updateResult['success'] = false;
 			}
 
@@ -490,7 +479,7 @@
 		}
 
 
-		// Update a piece of artwork, after checking input for each field. 
+		// Update staff, after checking input for each field. 
 		// If invalid or blank, show errors via array.
 		public function processUpdateStaff() {
 
@@ -504,15 +493,15 @@
 			$updateResult = [];
 			$updateResult['success'] = true;
 
-			// Artwork title
+			// Staff title
 			if(strlen($_POST['name']) < 1) {
-				$updateResult['name-error'] = 'Minimum 1 character(s) long';
+				$updateResult['name-error'] = 'Required (Min 1 character)';
 				$updateResult['success'] = false;
 			}
 
-			// Artwork description
+			// Staff description
 			if(strlen($_POST['bio']) < 5) {
-				$updateResult['bio-error'] = 'Please write 5 - 400 characters.';
+				$updateResult['bio-error'] = 'Required (5 - 400 characters)';
 				$updateResult['success'] = false;
 			}
 
@@ -535,7 +524,7 @@
 		}
 
 
-		// Update a piece of artwork, after checking input for each field. 
+		// Update a product, after checking input for each field. 
 		// If invalid or blank, show errors via array.
 		public function processUpdateProduct() {
 
@@ -549,15 +538,15 @@
 			$updateResult = [];
 			$updateResult['success'] = true;
 
-			// Artwork title
+			// Product title
 			if(strlen($_POST['name']) < 1) {
-				$updateResult['name-error'] = 'Minimum 1 character(s) long';
+				$updateResult['name-error'] = 'Required (Min 1 character)';
 				$updateResult['success'] = false;
 			}
 
-			// Artwork description
+			// Product description
 			if(strlen($_POST['price']) < 1) {
-				$updateResult['price-error'] = 'Minium 1 digit(s) long. If price varies on application, enter 0';
+				$updateResult['price-error'] = 'If price varies, enter 0.00';
 				$updateResult['success'] = false;
 			}
 

@@ -12,8 +12,8 @@
 				// All products should be inside this
 				echo '<div class="prices-container">';
 
+				// If no results, then inform user.
 				if (!$result){
-					// Else, tell user that no news exists.
 						echo '<div class="news-container-news">';
 							echo '<div class="news">';
 								echo '<p>There are no products or services listed at this point in time.</p>';
@@ -21,7 +21,7 @@
 						echo '</div>';
 				}
 
-				// Loop through categories in the database collection
+				// Otherwise, loop through categories in the database collection
 				foreach( $result as $category ) {
 
 						// Get the key

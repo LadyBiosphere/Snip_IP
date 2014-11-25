@@ -58,7 +58,7 @@
 
 				}
 			} else {
-				// Else, registration was successful. Process.
+				// Else, successful. Process.
 				$newsData = $this->model->processGetNewsUploadData();
 				$getNewsUploadData = $this->model->processGetNewsUploadData();
 

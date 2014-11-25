@@ -1,5 +1,5 @@
 <?php
-	// SNIP home page
+	// SNIP "Home" page
 	class HomeView extends View {
 
 		public function content() {

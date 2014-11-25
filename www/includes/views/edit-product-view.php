@@ -57,7 +57,7 @@
 					
 				}
 			} else {
-				// Else, registration was successful. Process.
+				// Else, successful. Process.
 				$productData = $this->model->processGetProductUploadData();
 				$getProductUploadData = $this->model->processGetProductUploadData();
 

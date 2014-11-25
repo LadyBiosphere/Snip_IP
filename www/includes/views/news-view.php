@@ -20,7 +20,7 @@
 								echo '<div class="news">';
 									echo '<h3>'.htmlspecialchars($row['news_title']).'</h3>';
 
-
+										// Show edit and delete buttons if admin is logged on 
 										if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
 
 											echo '<ul class="admin-controls">';
