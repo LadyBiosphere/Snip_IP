@@ -1,0 +1,74 @@
+// Mixins: functions for repetitive tasks.
+
+// Mixins for clearfix
+
+
+// Mixins for animation
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+
+// Mixin to create box sizing properties with vendor prefixes
+@mixin box-sizing($type-of-box: border-box) {
+	-webkit-box-sizing: 	$type-of-box;
+	-moz-box-sizing: 		$type-of-box;
+	-ms-box-sizing: 		$type-of-box;
+	-o-box-sizing: 			$type-of-box;
+	box-sizing: 			$type-of-box;
+}
+
+// Mixin for creating border-radius
+@mixin border-radius($radius: 20px) {
+	-webkit-border-radius: 	$radius;
+	-moz-border-radius: 	$radius;
+	-ms-border-radius: 		$radius;
+	-o-border-radius: 		$radius;
+	border-radius: 			$radius;
+}
+
+// Mixin to make writing media queries easier
+@mixin breakpoint($type) {
+	// You can write logic inside SASS, i.e. if statements and loops!
+
+	// If on a widescreen...
+	@if $type == wide {
+		@media all and (min-width: 1200px) {@content;}
+		// the '@content represents the inherited content 
+		// inside styles.scss'
+	}
+
+	// If on a desktop
+	@else if $type == desktop {
+		@media all and (min-width: 1000px) {@content;}
+	}
+
+	// If on a tablet
+	@else if $type == tablet-alt {
+		@media all and (min-width: 850px) {@content;}
+	}
+
+	// If on a tablet
+	@else if $type == tablet {
+		@media all and (min-width: 700px) {@content;}
+	}
+
+	// If on a mobile
+	@else if $type == mobile-alt-large {
+		@media all and (min-width: 600px) {@content;}
+	}
+
+	// If on a mobile
+	@else if $type == mobile-alt {
+		@media all and (min-width: 410px) {@content;}
+	}
+
+	// If on a mobile
+	@else if $type == mobile {
+		@media all and (min-width: 360px) {@content;}
+	}
+}
