@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2014 at 02:42 AM
+-- Generation Time: Nov 25, 2014 at 10:59 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -58,47 +58,7 @@ CREATE TABLE IF NOT EXISTS `s_cat_prods` (
   KEY `cat_ID` (`cat_ID`),
   KEY `cat_ID_2` (`cat_ID`),
   KEY `product_ID` (`product_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Contains relationship between product categories and products.' AUTO_INCREMENT=36 ;
-
---
--- Dumping data for table `s_cat_prods`
---
-
-INSERT INTO `s_cat_prods` (`catprod_ID`, `cat_ID`, `product_ID`) VALUES
-(1, 3, 1),
-(2, 3, 2),
-(3, 3, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 6),
-(7, 1, 7),
-(8, 1, 8),
-(9, 2, 9),
-(10, 2, 10),
-(11, 2, 11),
-(12, 2, 12),
-(13, 2, 13),
-(14, 2, 14),
-(15, 2, 15),
-(16, 4, 16),
-(17, 4, 17),
-(18, 4, 18),
-(19, 5, 19),
-(20, 5, 20),
-(21, 5, 21),
-(22, 6, 22),
-(24, 6, 23),
-(25, 6, 24),
-(26, 6, 25),
-(27, 6, 26),
-(28, 6, 27),
-(29, 6, 28),
-(30, 6, 29),
-(31, 6, 30),
-(32, 6, 31),
-(33, 6, 32),
-(34, 6, 33),
-(35, 1, 34);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains relationship between product categories and products.' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -113,14 +73,7 @@ CREATE TABLE IF NOT EXISTS `s_news` (
   `news_photo` varchar(400) NOT NULL,
   `news_desc` varchar(250) NOT NULL,
   PRIMARY KEY (`news_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Contains news from the salon' AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `s_news`
---
-
-INSERT INTO `s_news` (`news_ID`, `news_title`, `news_date`, `news_photo`, `news_desc`) VALUES
-(1, 'Welcome to a new SNIP!', '2014-11-25 00:46:14', '', 'We''ve got a new website and it''s compatible with mobile, tablet, desktop and a variety of mouse-less devices. We love it and think that you will love it too!');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains news from the salon' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -174,47 +127,7 @@ CREATE TABLE IF NOT EXISTS `s_products` (
   `product_name` varchar(50) NOT NULL,
   `product_price` decimal(4,2) NOT NULL,
   PRIMARY KEY (`product_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Contains list of products being sold at SNIP' AUTO_INCREMENT=35 ;
-
---
--- Dumping data for table `s_products`
---
-
-INSERT INTO `s_products` (`product_ID`, `product_name`, `product_price`) VALUES
-(1, 'Status Quo Silver', '32.50'),
-(2, 'Status Quo / Aqua Boost / Power Build', '28.00'),
-(3, 'Soothe Plus', '35.50'),
-(4, 'Clipper Shave', '12.00'),
-(5, 'Clipper Sides & Back', '23.00'),
-(6, 'Scissor Cut', '29.00'),
-(7, 'Restyle', '35.00'),
-(8, 'Wash', '5.00'),
-(9, 'Trim One Length', '28.00'),
-(10, 'Layered Cut', '38.00'),
-(11, 'Wash & Blowwave', '0.00'),
-(12, 'Wash, Cut & Blowwave', '55.00'),
-(13, 'Restyle', '60.00'),
-(14, 'Wash', '5.00'),
-(15, 'Treatment', '20.00'),
-(16, 'Status Quo / Aqua Boost / Power Build', '30.00'),
-(17, 'Status Quo / Aqua Boost Leave In', '32.50'),
-(18, 'Soothe Plus', '35.50'),
-(19, 'Aqua Boost / Power Build', '32.00'),
-(20, 'Revamp', '29.50'),
-(21, 'Soothe Plus', '35.50'),
-(22, 'Finale', '32.50'),
-(23, 'Root Lift', '28.50'),
-(24, 'Volume', '34.00'),
-(25, 'Spritz', '28.50'),
-(26, 'Texture', '35.00'),
-(27, 'Define', '35.00'),
-(28, 'Scuplt', '35.00'),
-(29, 'Shape', '35.00'),
-(30, 'Glaze', '28.50'),
-(31, 'Shine', '35.00'),
-(32, 'Thermal 220', '32.50'),
-(33, 'Argan Gloss', '36.00'),
-(34, 'FICTIONAL ITEMZ', '2.00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains list of products being sold at SNIP' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -228,15 +141,7 @@ CREATE TABLE IF NOT EXISTS `s_staff` (
   `staff_photo` varchar(300) NOT NULL,
   `staff_desc` varchar(400) NOT NULL,
   PRIMARY KEY (`staff_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Contains info about staff working at salon' AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `s_staff`
---
-
-INSERT INTO `s_staff` (`staff_ID`, `staff_name`, `staff_photo`, `staff_desc`) VALUES
-(1, 'Jess', '54739e876fa918963190242_c33f059b5a_z.jpg', 'Hi. My name is Jess. I don''t actually work at SNIP. I found this pic online.'),
-(2, 'Lemongrab', '5473a4f913ad3lemongrab-2.jpg', 'Rrrrrrrrrrrrrrggh! PUT YOU IN MY OVEN!');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains info about staff working at salon' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
