@@ -265,7 +265,7 @@ body {
 }
 
 hr {
-	border: 1px solid $border-active;
+	border: 2px solid $border-active;
 	border-image: $chalk-border;
 }
 
@@ -912,12 +912,11 @@ h2, h3 {
 	}
 
 	input[type="submit"] {
-		width: 50%;
-
+		display: block;
+		padding: 20px;
 		margin-top: 10px;
 		text-transform: uppercase;
 		background-color: black;
-
 		border: transparent;
 		color: white;
 		border-radius: 10px;
@@ -925,7 +924,7 @@ h2, h3 {
 
 	@include breakpoint(tablet){
 		input[type="submit"] {
-			width: 15%;
+			width: 20%;
 			padding: 20px;
 
 			border-top: 1px solid #555;
