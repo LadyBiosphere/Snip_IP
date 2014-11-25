@@ -15,6 +15,7 @@
 	<div class="prices-container">
 
 			<table class="access-board">
+				<caption>List of keyboard shortcuts</caption>
 				<thead>
 					<tr>
 						<th>Page Name</th>

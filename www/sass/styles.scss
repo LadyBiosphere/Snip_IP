@@ -514,7 +514,7 @@ h2, h3 {
 
 	@include breakpoint(tablet) {
 		width: 45%;
-		margin: 20px;
+		margin: 15px;
 		box-shadow: 0px 0px 30px 0px black;
 	}
 
@@ -527,6 +527,14 @@ h2, h3 {
 		border-bottom: $chalk-border;
 		text-transform: uppercase;
 		background-color: #000;
+	}
+
+	caption {
+		// width: 100%;
+		color: white;
+		font-weight: bold;
+		padding: 15px 4px;
+		background-color: black;
 	}
 
 	td, th {
@@ -564,7 +572,7 @@ h2, h3 {
 	margin-bottom: 10px;
 	border-image: $chalk-border;
 
-	thead {
+	thead, caption {
 		border-bottom: $chalk-border;
 		text-transform: uppercase;
 		background-color: #000;
@@ -580,6 +588,13 @@ h2, h3 {
 			color: white;
 			text-transform: uppercase;
 		}
+	}
+
+	caption {
+		width: 100%;
+		color: white;
+		font-weight: bold;
+		padding: 20px 0px;
 	}
 
 	th {

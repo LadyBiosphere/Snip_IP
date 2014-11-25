@@ -361,7 +361,7 @@ h2, h3 {
   @media all and (min-width: 700px) {
     .price-board, .time-board {
       width: 45%;
-      margin: 20px;
+      margin: 15px;
       box-shadow: 0px 0px 30px 0px black; } }
   @media all and (min-width: 1000px) {
     .price-board, .time-board {
@@ -371,6 +371,11 @@ h2, h3 {
     border-bottom: url(../images/backgrounds/chalk.png) 40 40 round;
     text-transform: uppercase;
     background-color: #000; }
+  .price-board caption, .time-board caption {
+    color: white;
+    font-weight: bold;
+    padding: 15px 4px;
+    background-color: black; }
   .price-board td, .price-board th, .time-board td, .time-board th {
     padding: 15px 4px;
     color: white;
@@ -395,7 +400,7 @@ h2, h3 {
   border: 1px solid gray;
   margin-bottom: 10px;
   border-image: url(../images/backgrounds/chalk.png) 40 40 round; }
-  .access-board thead {
+  .access-board thead, .access-board caption {
     border-bottom: url(../images/backgrounds/chalk.png) 40 40 round;
     text-transform: uppercase;
     background-color: #000; }
@@ -407,6 +412,11 @@ h2, h3 {
     .access-board td a, .access-board th a {
       color: white;
       text-transform: uppercase; }
+  .access-board caption {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 20px 0px; }
   .access-board th {
     text-align: left; }
   .access-board td, .access-board th {

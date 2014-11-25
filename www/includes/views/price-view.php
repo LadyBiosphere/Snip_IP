@@ -34,6 +34,27 @@
 						}
 
 						echo '<table class="price-board">';
+
+						// Custom Captions
+						if($key == "Shampoo") {
+							echo '<caption>List of Shampoos</caption>';
+						}
+						if($key == "Conditioner") {
+							echo '<caption>List of Conditioners</caption>';
+						}
+						if($key == "Treatment") {
+							echo '<caption>List of Treatment Products</caption>';
+						}
+						if($key == "Styling") {
+							echo '<caption>List of Styling Products</caption>';
+						}
+						if($key == "Men's & Boys Styling") {
+							echo '<caption>Services for Men</caption>';
+						}
+						if($key == "Women's & Girls Styling") {
+							echo '<caption>Services for Women</caption>';
+						}
+
 						echo '<thead>';
 						echo '<tr>';
 						echo '<th>'.key($category).'</th>';
@@ -66,8 +87,8 @@
 
 								// If admin is logged in, then show edit and delete buttons
 								if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
-									echo '<td class="admin-controls"><a href="index.php?page=editProd&product_ID='.$item['product_ID'].'"><i class="fa fa-pencil-square-o"></i></a></td>';
-									echo '<td class="admin-controls"><a href="index.php?page=deleteProd&product_ID='.$item['product_ID'].'"><i class="fa fa-times"></i></a></td>';
+									echo '<td class="admin-controls"><a href="index.php?page=editProd&amp;product_ID='.$item['product_ID'].'"><i class="fa fa-pencil-square-o"></i></a></td>';
+									echo '<td class="admin-controls"><a href="index.php?page=deleteProd&amp;product_ID='.$item['product_ID'].'"><i class="fa fa-times"></i></a></td>';
 								}
 								echo '</tr>';
 							}
