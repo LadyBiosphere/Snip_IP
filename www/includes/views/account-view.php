@@ -31,31 +31,9 @@
 		private $uploadMessagesProduct 	= '';
 		private $uploadMessagesStaff 	= '';
 
+		public function __construct($pageData, $model) {
 
-		public function content() {
-
-			// If a user attempts to access page without login, inform login required
-			if(!isset($_SESSION['user_username'])) {
-
-				echo '<div id="container">';
-					echo '<div class="news-container">';
-						echo '<div class="news">';
-							echo '<h2>Access Denied</h2>';
-							echo '<p>You need to be <a href="index.php?page=login">logged in</a> to see this page!</p>';	
-						echo '</div>';
-					echo '</div>';
-				echo '</div>';
-				return;
-			}
-
-			// Get a list of all product categories
-			$listOfCat = $this->model->processGetAllCategories();
-
-			// If user submitted this form, then user wants to change password
-			if( isset($_POST['update-account']) ) {
-				$updateResult = $this->model->processUserDataUpdate();
-				$this->message = $updateResult['message'];
-			}
+			parent::__construct($pageData, $model);
 
 			// If user submitted this form, then user wants to upload news
 			if (isset($_POST['insert-news'])) {
@@ -80,6 +58,34 @@
 				$this->staffName 	= $_POST['staffName'];
 				$this->staffBio 	= $_POST['staffBio'];
 				$result = $this->doInsertStaff();
+			}
+
+		}
+
+
+		public function content() {
+
+			// If a user attempts to access page without login, inform login required
+			if(!isset($_SESSION['user_username'])) {
+
+				echo '<div id="container">';
+					echo '<div class="news-container">';
+						echo '<div class="news">';
+							echo '<h2>Access Denied</h2>';
+							echo '<p>You need to be <a href="index.php?page=login">logged in</a> to see this page!</p>';	
+						echo '</div>';
+					echo '</div>';
+				echo '</div>';
+				return;
+			}
+
+			// Get a list of all product categories
+			$listOfCat = $this->model->processGetAllCategories();
+
+			// If user submitted this form, then user wants to change password
+			if( isset($_POST['update-account']) ) {
+				$updateResult = $this->model->processUserDataUpdate();
+				$this->message = $updateResult['message'];
 			}
 
 			// Get info about user - show user their own info
