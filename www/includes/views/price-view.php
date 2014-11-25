@@ -56,18 +56,18 @@
 
 							foreach( $product as $item ) {
 								echo '<tr>';
-								echo '<td>'.htmlspecialchars($item[0]).'</td>';
+								echo '<td>'.htmlspecialchars($item['product_name']).'</td>';
 
-								if($item[1] == "0.00") {
+								if($item['product_price'] == "0.00") {
 									echo '<td>Price on application</td>';
 								} else {
-									echo '<td>$ '.htmlspecialchars($item[1]).'</td>';
+									echo '<td>$ '.htmlspecialchars($item['product_price']).'</td>';
 								}
 
 								// If admin is logged in, then show edit and delete buttons
 								if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
-									echo '<td class="admin-controls"><a href="index.php?page=editProd&product_ID='.$item[3].'"><i class="fa fa-pencil-square-o"></i></a></td>';
-									echo '<td class="admin-controls"><a href="index.php?page=deleteProd&product_ID='.$item[3].'"><i class="fa fa-times"></i></a></td>';
+									echo '<td class="admin-controls"><a href="index.php?page=editProd&product_ID='.$item['product_ID'].'"><i class="fa fa-pencil-square-o"></i></a></td>';
+									echo '<td class="admin-controls"><a href="index.php?page=deleteProd&product_ID='.$item['product_ID'].'"><i class="fa fa-times"></i></a></td>';
 								}
 								echo '</tr>';
 							}
