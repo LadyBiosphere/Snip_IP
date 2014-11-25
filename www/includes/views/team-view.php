@@ -21,7 +21,7 @@
 								// If first staff member, then give them first position inside slider
 								if( $row['staff_ID'] == 1 ) {
 									echo '<li class="wallop-slider__item wallop-slider__item--current">';
-									echo '<img src="images/staff/'.htmlspecialchars($row['staff_photo']).'" alt="Hairdresser working at SNIP, on The Terrace"/></a>';
+									echo '<img src="images/staff/'.htmlspecialchars($row['staff_photo']).'" alt="Hairdresser working at SNIP, on The Terrace"/>';
 									echo '<div class="news">';
 										echo '<h2>'.htmlspecialchars($row['staff_name']).'</h2>';
 
@@ -29,8 +29,8 @@
 										if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
 
 											echo '<ul>';
-												echo '<li><a href="index.php?page=editStaff&staff_ID='.$row['staff_ID'].'"><i class="fa fa-pencil-square-o"></i> Edit</a></li>';
-												echo '<li><a href="index.php?page=deleteStaff&staff_ID='.$row['staff_ID'].'"><i class="fa fa-times"></i> Delete</a></li>';
+												echo '<li><a href="index.php?page=editStaff&amp;staff_ID='.$row['staff_ID'].'"><i class="fa fa-pencil-square-o"></i> Edit</a></li>';
+												echo '<li><a href="index.php?page=deleteStaff&amp;staff_ID='.$row['staff_ID'].'"><i class="fa fa-times"></i> Delete</a></li>';
 											echo '</ul>';
 										}
 
@@ -43,7 +43,7 @@
 
 									// All other staff should go into these slider positions
 									echo '<li class="wallop-slider__item">';
-										echo '<img src="images/staff/'.htmlspecialchars($row['staff_photo']).'" alt="Hairdresser working at SNIP, on The Terrace"/></a>';
+										echo '<img src="images/staff/'.htmlspecialchars($row['staff_photo']).'" alt="Hairdresser working at SNIP, on The Terrace"/>';
 										echo '<div class="news">';
 											echo '<h2>'.htmlspecialchars($row['staff_name']).'</h2>';
 
@@ -51,8 +51,8 @@
 											if( isset($_SESSION['user_access']) && $_SESSION['user_access'] == 'admin' ) {
 
 												echo '<ul>';
-													echo '<li><a href="index.php?page=editStaff&staff_ID='.$row['staff_ID'].'"><i class="fa fa-pencil-square-o"></i> Edit</a></li>';
-													echo '<li><a href="index.php?page=deleteStaff&staff_ID='.$row['staff_ID'].'"><i class="fa fa-times"></i> Delete</a></li>';
+													echo '<li><a href="index.php?page=editStaff&amp;staff_ID='.$row['staff_ID'].'"><i class="fa fa-pencil-square-o"></i> Edit</a></li>';
+													echo '<li><a href="index.php?page=deleteStaff&amp;staff_ID='.$row['staff_ID'].'"><i class="fa fa-times"></i> Delete</a></li>';
 												echo '</ul>';
 											}
 

@@ -60,7 +60,7 @@
 						echo '</div>';
 
 						// Offer deleting AND 'back' option
-						echo '<form action="index.php?page=deleteNews&news_ID='.$_GET['news_ID'].'" method="POST" class="form">';
+						echo '<form action="index.php?page=deleteNews&amp;news_ID='.$_GET['news_ID'].'" method="POST" class="form">';
 								echo '<input type="submit" name="yes" value="Yes, delete!" class="button">';
 								echo '<a href="index.php?page=news"> Back to Latest News</a>';
 						echo '</form>';

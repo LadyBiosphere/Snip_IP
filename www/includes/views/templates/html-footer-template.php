@@ -18,7 +18,7 @@
 						?>
 
 					<li><a href="index.php?page=logout" accesskey="0"><i class="fa fa-scissors"></i> Logout</a></li>
-					<li><a href="index.php?page=admin"><i class="fa fa-cog fa-spin"></i></i> Controls</a></li>
+					<li><a href="index.php?page=admin"><i class="fa fa-cog fa-spin"></i> Controls</a></li>
 
 						<?php 
 							endif;

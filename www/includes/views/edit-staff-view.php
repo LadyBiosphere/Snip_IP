@@ -75,7 +75,7 @@
 
 						// If an image is available, include it
 						if( $getStaffUploadData['staff_photo'] != '' ) {
-							echo '<img src="images/staff/'.htmlspecialchars($getStaffUploadData['staff_photo']).'" alt="Hairdresser at Snip"/></a>';
+							echo '<img src="images/staff/'.htmlspecialchars($getStaffUploadData['staff_photo']).'" alt="Hairdresser at Snip"/>';
 						} else {
 							echo '<img src="images/staff/default.png" alt="Hairdresser at Snip"/></a>';
 						}

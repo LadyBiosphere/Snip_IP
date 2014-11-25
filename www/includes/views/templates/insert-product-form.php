@@ -10,7 +10,7 @@
 		<div>
 			<label>Price $:</label>
 			<input type="text" name="productPrice" id="productPrice" placeholder="00.00" value="<?php echo htmlspecialchars($this->productPrice); ?>">
-			<span class="error" id="product-name-error"><?php echo $this->productPriceError; ?></span>
+			<span class="error" id="product-price-error"><?php echo $this->productPriceError; ?></span>
 		</div>
 		<div>
 			<label>Category: </label>

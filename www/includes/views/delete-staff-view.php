@@ -50,7 +50,7 @@
 
 							// If an image is available, include it
 							if( $getStaffUploadData['staff_photo'] != '' ) {
-								echo '<img src="images/staff/'.htmlspecialchars($getStaffUploadData['staff_photo']).'" alt="Salon News"/></a>';
+								echo '<img src="images/staff/'.htmlspecialchars($getStaffUploadData['staff_photo']).'" alt="Salon News"/>';
 							}
 
 							echo '<p>'.htmlspecialchars($getStaffUploadData['staff_desc']).'</p>';
@@ -58,7 +58,7 @@
 						echo '</div>';
 
 						// Offer deleting AND 'back' option
-						echo '<form action="index.php?page=deleteStaff&staff_ID='.$_GET['staff_ID'].'" method="POST" class="form">';
+						echo '<form action="index.php?page=deleteStaff&amp;staff_ID='.$_GET['staff_ID'].'" method="POST" class="form">';
 								echo '<input type="submit" name="yes" value="Yes, delete!" class="button">';
 								echo '<a href="index.php?page=team">Back to Team Page.</a>';
 						echo '</form>';
