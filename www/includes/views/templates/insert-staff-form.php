@@ -14,7 +14,7 @@
 		</div>
 		<div>
 			<label>Biography: </label>
-			<textarea rows="5" cols="20" name="staffBio" id="staffBio" value="<?php echo htmlspecialchars($this->staffBio); ?>"></textarea>
+			<textarea rows="5" cols="20" name="staffBio" id="staffBio"></textarea>
 			<span class="error" id="staff-bio-error"><?php echo $this->staffBioError; ?></span>
 		</div>
 		<div>

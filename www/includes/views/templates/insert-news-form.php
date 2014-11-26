@@ -12,7 +12,7 @@
 		</div>
 		<div>
 			<label>Description: </label>
-			<textarea rows="5" cols="20" name="desc" id="desc" value="<?php echo htmlspecialchars($this->newsDesc); ?>"></textarea>
+			<textarea rows="5" cols="20" name="desc" id="desc"></textarea>
 			<span class="error" id="news-desc-error"><?php echo $this->newsDescError; ?></span>
 		</div>
 		<div>
